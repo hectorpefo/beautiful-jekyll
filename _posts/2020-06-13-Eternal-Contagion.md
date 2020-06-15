@@ -37,7 +37,7 @@ $$P(E_n) = F^n(0)$$
 
 (where $F^n(0)$ means $n$ nested applications of the function $F$.)
 
-Call the other solution to our quadratic equation for $p > .5$, besides $P(E)$, whichever it may be ($1$ or $1-\frac{1}{p}$), $q$. Since $q$ is a solution, we know that:
+Let $q$ be the smaller solution to our quadratic equation for $p > .5$, namely, 1-\frac{1}{p}$. Since $q$ is a solution, we know that:
 
 $$F(q) = q$$
 
@@ -59,6 +59,6 @@ $$ \lim_{n \rightarrow \infty} F^n(0) \leq q$$
 
 $$ P(E) \leq q $$
 
-Thus $P(E)$ cannot be the strictly greater solution (i.e., $1$) and hence must be $\frac{1}{p}-1$, and so the probability of eternal survival is $2 - \frac{1}{p}$.
+Thus $P(E)$ must be $\frac{1}{p}-1$, and so the probability of eternal survival is $2 - \frac{1}{p}$.
 
 <br>

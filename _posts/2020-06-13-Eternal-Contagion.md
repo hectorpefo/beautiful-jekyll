@@ -37,7 +37,7 @@ $$P(E_n) = F^n(0)$$
 
 (where $F^n(0)$ means $n$ nested applications of the function $F$.)
 
-Let $q$ be the smaller solution to our quadratic equation for $p > .5$, namely, 1-\frac{1}{p}$. Since $q$ is a solution, we know that:
+Let $q$ be the smaller solution to our quadratic equation for $p > .5$, namely, $1-\frac{1}{p}$. Since $q$ is a solution, we know that:
 
 $$F(q) = q$$
 

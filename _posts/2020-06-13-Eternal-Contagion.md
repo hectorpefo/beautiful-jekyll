@@ -55,7 +55,7 @@ $$\cdots$$
 
 $$ F^n(0) \leq q $$
 
-$$ lim_{n \rightarrow \infty} F^n(0) \leq q$$
+$$ \lim_{n \rightarrow \infty} F^n(0) \leq q$$
 
 $$ P(E) \leq q $$
 

@@ -19,7 +19,7 @@ Let $E$ be the event of eventual extinction. Eventual extinction is equivalent t
 
 $$P(E) = (1-p) + pP(E)^2$$
 
-For $p < .5$, this has two solutions, only one of which is in range: extinction with probability $1$.
+For $p < .5$, this has two solutions, only one of which is in range: extinction with probability $1$ (which is also the only solution for $p = .5$).
 
 For $p>.5$, there are also two solutions, namely $1$ and $\frac{1}{p} - 1$, which is less than $1$ for these values of $p$. It turns out that the correct probability is the latter. But it will take a little work to show that.
 

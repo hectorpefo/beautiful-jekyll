@@ -59,6 +59,6 @@ $$ \lim_{n \rightarrow \infty} F^n(0) \leq q$$
 
 $$ P(E) \leq q $$
 
-Thus $P(E)$ must be the smaller solution, $\frac{1}{p}-1$, and so the probability of eternal survival is $2 - \frac{1}{p}$.
+Thus $P(E)$ must be the smaller solution, nKids$\frac{1}{p}-1$, and so the probability of eternal survival is $2 - \frac{1}{p}$.
 
 <br>

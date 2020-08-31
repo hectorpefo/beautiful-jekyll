@@ -33,9 +33,9 @@ Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikip
 from math import factorial
 
 # Return number of ways to deal perfectly for player 1
-# from a state [a,b,c,d] where among remaining cards 
+# from a state (a,b,c,d) where among remaining cards 
 # are a,b,c,d card values with 1,2,3,4 each to
-# final state [0,0,0,0]
+# final state (0,0,0,0)
 def perfectDealsFrom (state):
 	global alreadyDone
 	if state in alreadyDone:

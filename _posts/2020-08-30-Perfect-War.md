@@ -29,6 +29,8 @@ Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,
 
 The code below implements this, yielding an expectation of $159,620,171$ deals!
 
+Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
+
 ```python
 from math import factorial
 

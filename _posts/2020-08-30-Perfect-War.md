@@ -27,6 +27,14 @@ Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,
 
 There are, it turns out, $1199$ game states to consider, so we will rely on the computer. The code below implements this, quickly yielding an expectation of $159,620,172$ deals before a perfect one.
 
+Retaining the assumption of four cards per value, the expectation for a perfect game is closely proportional to the log of the number of values in the deck.
+
+![Straight line with log y axis](/img/PerfectWar.jpg)
+
+Also interestingly, the expectation of the first game with no matches in the first run through seems to approach a limit near 4.56.
+
+![](/img/PerfectWar2.jpg)
+
 Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
 
 ```python

@@ -11,7 +11,7 @@ date: 2020-08-30
 
 <!--more-->
 
-## Solutionish Musings
+## Solution
 
 There are $52!$ different, equally likely deals. If we can find the number of match-free deals that result in a $26$-turn game, we can divide the former by the latter number to get our answer (which is the inverse of the probability of getting a $26$-turn game).
 

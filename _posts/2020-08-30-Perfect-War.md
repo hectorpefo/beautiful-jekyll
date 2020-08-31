@@ -31,7 +31,7 @@ Retaining the assumption of four cards per value, the expectation for a perfect 
 
 ![Straight line with log y axis](/img/PerfectWar.jpg)
 
-Also interestingly, the expectation of the first game with no matches in the first run through seems to approach a limit near 4.56.
+Also interestingly, the expectation of the first game with no matches in the first run through seems to approach a limit somewhere below 4.56.
 
 ![](/img/PerfectWar2.jpg)
 

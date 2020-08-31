@@ -35,46 +35,52 @@ The expectation seems to be roughly proportional to the log of the number of car
 from math import factorial
 
 # Return number of ways to deal matchlessly from a state [a,b,c,d] where
-# among remaining cards are a,b,c,d card values with 1,2,3,4 cards to
+# among remaining cards are a,b,c,d card values with 1,2,3,4 each to
 # final state [0,0,0,0]
-def matchlessDealsFrom (state):
+def matchFreeDealsFrom (state):
 	global alreadyDone
 	if state in alreadyDone:
 		return alreadyDone[state]
 	totalWaysFromHere = 0
+	# index of player 1's next card
 	for i in range(4):
-		# index of player 1's next card
 		if state[i] == 0:
 			continue
 		# choose among i+1 cards each of state[i] values
-		waysFromHere = (i + 1) * state[i]
-		newState = list(state)
-		newState[i] -= 1
+		choicesOfPlayer1Card = (i + 1) * state[i]
+		stateAfterPlayer1 = list(state)
+		stateAfterPlayer1[i] -= 1
 		if i > 0:
-			newState[i-1] += 1
-		firstValueAt = i - 1
+			stateAfterPlayer1[i-1] += 1
+		player1CardValueNowAt = i - 1
+		# index of player 2's card
 		for j in range(4):
-			# index of player 2's card
-			if newState[j] == 0 or (newState[j] == 1 and firstValueAt == j):
+			if (stateAfterPlayer1[j] == 0) or (stateAfterPlayer1[j] == 1 and player1CardValueNowAt == j):
 				continue
-			if j == firstValueAt:
-				waysFromHere *= (j + 1) * (newState[j] - 1)
+			if player1CardValueNowAt == j:
+				choicesOfBothCards = choicesOfPlayer1Card * (j + 1) * (stateAfterPlayer1[j] - 1)
 			else:
-				waysFromHere *= (j + 1) * newState[j]
-			newState[j] -= 1
+				choicesOfBothCards = choicesOfPlayer1Card * (j + 1) * stateAfterPlayer1[j]
+			stateAfterPlayer2 = list(stateAfterPlayer1)
+			stateAfterPlayer2[j] -= 1
 			if j > 0:
-				newState[j-1] += 1
-			totalWaysFromHere += waysFromHere * matchlessDealsFrom(tuple(newState))
+				stateAfterPlayer2[j-1] += 1
+			totalWaysFromHere += choicesOfBothCards * matchFreeDealsFrom(tuple(stateAfterPlayer2))
 	alreadyDone[state] = totalWaysFromHere
 	return totalWaysFromHere
 
 alreadyDone = { (0,0,0,0) : 1 }
-numCardValues = 13
-numMFDeals = matchlessDealsFrom((0,0,0,numCardValues))
+numCardValues = 2
+# for numCardValues in range(2,101):
+# 	numMFDeals = matchFreeDealsFrom((0,0,0,numCardValues))
+# 	print(numCardValues,",",factorial(4*numCardValues)/numMFDeals)
+
+#
+numMFDeals = matchFreeDealsFrom((0,0,0,13))
 print("Number of match-free deals:", numMFDeals)
 print("Probability of a match-free deal:", numMFDeals/factorial(4*numCardValues))
 print("Expected deals until a match-free one:", factorial(4*numCardValues)/numMFDeals)
-print(factorial(52)/matchlessDealsFrom((0,0,0,13)))
+
 ```
 
 ```

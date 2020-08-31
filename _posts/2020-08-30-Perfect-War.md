@@ -27,7 +27,7 @@ Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,
 
 There are, it turns out, $1199$ game states to consider, so we will rely on the computer. The code below implements this, quickly yielding an expectation of $159,620,172$ deals before a perfect one.
 
-Retaining the assumption of four cards per value, the expectation for a perfect game is closely proportional to the log of the number of values in the deck.
+Retaining the assumption of four cards per value, the expectation for a perfect game seems to be exponential with the number of card values, as can be seen here (the vertical axis is on a log scale).
 
 ![Straight line with log y axis](/img/PerfectWar.jpg)
 

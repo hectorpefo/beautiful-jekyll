@@ -81,8 +81,9 @@ print("Expected deals until a match-free one:", factorial(4*numCardValues)/numMF
 
 ```
 Number of match-free deals: 16955496445780676751668866346010770786368985164896766506565632000000
-Probability of a match-free deal: 4.205232253417827e+62
-Expected deals until a match-free one: 2.377989941428905e-63
+Total number of deals: 80658175170943878571660636856403766975289505440883277824000000000000
+Probability of a match-free deal: 0.2102142332112751
+Expected deals until a match-free one: 4.757051816729048
 [Finished in 0.3s]
 ```
 

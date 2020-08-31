@@ -27,16 +27,12 @@ Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,
 
 The code below is meant to implement this, and it gets correct answers for small states (e.g., $384$ ways forward from $(0,3,0,0)$), but gives a crazy result for $(0,0,0,13)$, far greater than $52!$. Any debugging help would be most appreciated!
 
-The expectation seems to be roughly proportional to the log of the number of card values in the deck.  Maybe that's a worthy echo of Euler's amazing result about the somewhat similar, but evidently importantly different, [Game of Coincidence](http://eulerarchive.maa.org/hedi/HEDI-2004-09.pdf).
-
-![straightish-line plot with log y-axis](/img/PerfectWar.jpg)
-
 ```python
 from math import factorial
 
-# Return number of ways to deal matchlessly from a state [a,b,c,d] where
+# Return number of ways to deal matchlessly from a state (a,b,c,d) where
 # among remaining cards are a,b,c,d card values with 1,2,3,4 each to
-# final state [0,0,0,0]
+# final state (0,0,0,0)
 def matchFreeDealsFrom (state):
 	global alreadyDone
 	if state in alreadyDone:

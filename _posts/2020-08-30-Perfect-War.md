@@ -25,7 +25,11 @@ M(\mathbf{a^p}) W(\mathbf{a^p},\mathbf{a})$$
 
 Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,2)$. To get to the new state without matching, we can choose any of the $6$ cards in the three-of-the-value group and any of the $6$ in the two-of-the-value group, and distribute these two cards in either of the two possible ways. So the number of ways of arriving match-freely at $(3,3,1,2)$ having previously been at $(4,3,2,2)$ is $72 \cdot M(4,3,3,2)$.
 
-The code below is meant to implement this, and it gets correct answers for small states (e.g., $384$ ways forward from $(0,3,0,0)$), but gives a crazy result for $(0,0,0,13)$. Any debugging help would be most appreciated!
+The code below is meant to implement this, and it gets correct answers for small states (e.g., $384$ match-free deals from $(0,3,0,0)$), and $9216$ from $(0,0,0,2)$, in which case the dict `alreadyDone` looks like this: 
+
+```{(0, 0, 0, 0): 1, (2, 0, 0, 0): 2, (0, 2, 0, 0): 16, (0, 0, 2, 0): 288, (0, 0, 0, 2): 9216}```
+
+which looks right to me, but it gives a crazy result for $(0,0,0,13)$. Any debugging help would be most appreciated! 
 
 ```python
 from math import factorial
@@ -66,13 +70,12 @@ def matchFreeDealsFrom (state):
 	return totalWaysFromHere
 
 alreadyDone = { (0,0,0,0) : 1 }
-numCardValues = 2
+numCardValues = 13
 # for numCardValues in range(2,101):
 # 	numMFDeals = matchFreeDealsFrom((0,0,0,numCardValues))
 # 	print(numCardValues,",",factorial(4*numCardValues)/numMFDeals)
 
-#
-numMFDeals = matchFreeDealsFrom((0,0,0,13))
+numMFDeals = matchFreeDealsFrom((0,0,0,numCardValues))
 print("Number of match-free deals:", numMFDeals)
 print("Probability of a match-free deal:", numMFDeals/factorial(4*numCardValues))
 print("Expected deals until a match-free one:", factorial(4*numCardValues)/numMFDeals)

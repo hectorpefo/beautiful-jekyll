@@ -25,7 +25,7 @@ M(\mathbf{a^p}) W(\mathbf{a^p},\mathbf{a})$$
 
 Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,2)$. To get to the new state without matching, we can choose any of the $6$ cards in the three-of-the-value group and any of the $6$ in the two-of-the-value group, and distribute these two cards in either of the two possible ways. So the number of ways of arriving match-freely at $(3,3,1,2)$ having previously been at $(4,3,2,2)$ is $72 \cdot M(4,3,3,2)$.
 
-The code below (if correct!) does this for every possible match-free deal, and yields an expectation of 6.446976545663825e+16 deals before a match-free one. (Thanks to Angela Zhou for prompting me to memoize (the "alreadyDone" part).)
+The code below (if correct! I've only sanity-checked states with a few cards remaining) does this for every possible match-free deal, and yields an expectation of 6.446976545663825e+16 deals before a match-free one. (Thanks to Angela Zhou for prompting me to memoize (the "alreadyDone" part).)
 
 The expectation seems to be roughly proportional to the log of the number of card values in the deck.  Maybe that's a worthy echo of Euler's amazing result about the somewhat similar, but evidently importantly different, [Game of Coincidence](http://eulerarchive.maa.org/hedi/HEDI-2004-09.pdf).
 

@@ -7,7 +7,7 @@ date: 2020-08-30
 
 >Assuming a deck is randomly shuffled before every game, how many games of War would you expect to play until you had a game that lasted just 26 turns?
 
-[fivethirtyeight](https://fivethirtyeight.com/features/are-you-a-pinball-wizard/).
+[fivethirtyeight](https://fivethirtyeight.com/features/can-you-cover-the-globe/).
 
 <!--more-->
 
@@ -15,11 +15,11 @@ date: 2020-08-30
 
 There are $52!$ different, equally likely deals. If we can find the number of match-free deals that result in a $26$-turn game, we can divide the former by the latter number to get our answer (which is the inverse of the probability of getting a $26$-turn game).
 
-Most match-free deals do not result in a perfect game, because player 1 wins some hands while player 2 wins others. However, there is a simple relation between the total number of match-free hands and the total number of perfect ones: there are two perfect hands among the $2^{26}$ match-free hands that see the same pair of cards every hand (but differ as to which player gets which card in some hands).
+Most match-free deals do not result in a perfect game, because player 1 wins some deals while player 2 wins others. However, there is a simple relation between the total number of match-free deals and the total number of perfect ones: there are two perfect deals among the $2^{26}$ match-free deals that see the same pair of cards every deal (but differ as to which player gets which card in some deals).
 
 We will use a recurrence to calculate the number of match-free, perhaps partial deals that lead to a given game state, where a state lists the number of card values of which just one remains, two remain, and so on. So we'll use $M(a_1,a_2,a_3,a_4)$, or $M(\mathbf{a})$, to mean the number of match-free deals that get you to $\mathbf{a}$, starting from $(0,0,0,13)$. Our goal is to find $M(0,0,0,0)$, the number of match-free deals of the whole deck. Of course $M(0,0,0,13)$ is $1$.
 
-We can calculate values of $M(\mathbf{a})$ from those of $M$ at preceding states. $M(\mathbf{a})$ is a sum: for each $\mathbf{a^p}$ that describes a possible preceding state to $\mathbf{a}$, we count all ways in which we can match-freely reach $\mathbf{a}$ from $\mathbf{a^p}$, and include the product of that count and $M(\mathbf{a^p})$ in $M(\mathbf{a})$. If we let $P(\mathbf{a})$ name the set of possible predecessor states to $\mathbf{a}$, and $W(\mathbf{a^p},\mathbf{a})$ count the number of ways of getting from one to the next state by dealing two among the remaining cards, then:
+We can calculate values of $M(\mathbf{a})$ from those of $M$ at all possible preceding states. $M(\mathbf{a})$ is a sum: for each $\mathbf{a^p}$ that describes a possible preceding state to $\mathbf{a}$, we count all ways in which we can match-freely reach $\mathbf{a}$ from $\mathbf{a^p}$, and include the product of that count and $M(\mathbf{a^p})$ in $M(\mathbf{a})$. If we let $P(\mathbf{a})$ name the set of possible preceding states to $\mathbf{a}$, and $W(\mathbf{a^p},\mathbf{a})$ count the number of ways of getting from one to the next state by dealing two among the remaining cards, then:
 
 $$M(\mathbf{a}) =
 \sum_{\mathbf{a^p} \in P(\mathbf{a})} 

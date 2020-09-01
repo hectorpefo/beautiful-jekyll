@@ -31,7 +31,7 @@ Retaining the assumption of four cards per value, the expectation for a perfect 
 
 ![Straight line with log y axis](/img/PerfectWar.jpg)
 
-Also interestingly, the expectation of the first game with no matches in the first run-through seems to approach a limit somewhere below 4.56. I have a hunch that [Euler](http://eulerarchive.maa.org/hedi/HEDI-2004-09.pdf) would find $e$ in there somewhere.
+Now, the count of perfect games varies with the count of games in which there is no match in the first deal in a simple way: there are $2$ raised to twice minus one of the number of card values as many of the latter. So that's a source of exponentiality. And it seems to be the only such source. The expectation of the first game with no matches in the first run-through seems to approach a limit somewhere below 4.56. I have a hunch that [Euler](http://eulerarchive.maa.org/hedi/HEDI-2004-09.pdf) would find $e$ in there somewhere.
 
 ![](/img/PerfectWar2.jpg)
 

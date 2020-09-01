@@ -35,7 +35,7 @@ Now, the count of perfect games varies with the count of games in which there is
 
 ![](/img/PerfectWar2.jpg)
 
-Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
+(No, it's not exactly 6 at $n = 3$.) Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
 
 ```python
 from math import factorial

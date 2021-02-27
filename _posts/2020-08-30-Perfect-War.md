@@ -13,9 +13,9 @@ date: 2020-08-30
 
 ## Solution
 
-There are $52!$ different, equally likely deals. If we can find the number of different, perfect deals, we can divide the former by the latter number to get our expectation (which is the inverse of the probability of getting a $26$-turn game). We'll count the pefect deals in which player 1 wins, and then double that number.
+There are $52!$ different, equally likely deals. If we can find the number of different, perfect deals, we can divide the former by the latter number to get our expectation (which is the inverse of the probability of getting a $26$-turn game). We'll count the perfect deals in which player 1 wins, and then double that number.
 
-We will use a recurrence to calculate the number of perfect (for player 1), perhaps partial deals that lead to a given game state, where a state lists the number of card values of which just one remains, two remain, and so on. So we'll use $M(a_1,a_2,a_3,a_4)$, or $M(\mathbf{a})$, to mean the number of perfect deals that lead to $\mathbf{a}$, starting from $(0,0,0,13)$. Our goal is to find $M(0,0,0,0)$, the number of perfect deals of the whole deck. Of course $M(0,0,0,13)$ is $1$.
+We will use a recurrence to calculate the number of perfect (for player 1) partial deals that lead to a given game state, where a state lists the number of card values of which just one card remains, of which two remain, three, and four. So we'll use $M(a_1,a_2,a_3,a_4)$, or $M(\mathbf{a})$, to mean the number of perfect deals that lead to $\mathbf{a}$, starting from the initial state of $(0,0,0,13)$. Our goal is to find $M(0,0,0,0)$, the number of perfect deals of the whole deck. Of course $M(0,0,0,13)$ is $1$.
 
 We can calculate values of $M(\mathbf{a})$ from those of $M$ at all possible preceding states. $M(\mathbf{a})$ is a sum: for each $\mathbf{a^p}$ that describes a possible preceding state to $\mathbf{a}$, we count all ways in which we can reach $\mathbf{a}$ from $\mathbf{a^p}$ with a higher card for player 1, and include the product of that count and $M(\mathbf{a^p})$ in $M(\mathbf{a})$. If we let $P(\mathbf{a})$ name the set of possible preceding states to $\mathbf{a}$, and $W(\mathbf{a^p},\mathbf{a})$ count the number of ways of getting from one to the next state by dealing two cards, player 1's higher, from among those remaining, then:
 
@@ -25,17 +25,17 @@ M(\mathbf{a^p}) W(\mathbf{a^p},\mathbf{a})$$
 
 Suppose we're calculating $M(3,3,1,2)$. One possible preceding state is $(4,3,2,2)$. To get to the new state without matching, we can choose any of the $6$ cards in the three-of-the-value group and any of the $6$ in the two-of-the-value group, and assign player 1 the higher card. So the number of ways of arriving perfectly at $(3,3,1,2)$ having previously been at $(4,3,2,2)$ is $36 \cdot M(4,3,3,2)$.
 
-There are, it turns out, $1199$ game states to consider, so we will rely on the computer. The code below implements this, quickly yielding an expectation of $159,620,172$ deals before a perfect one.
+There are, it turns out, $1199$ game states to consider, so we will rely on the computer. The code below implements this, quickly yielding an expectation of $159,620,172$ deals before a perfect one (twice that if we are counting only wins by one player).
 
 Retaining the assumption of four cards per value, the expectation for a perfect game seems to be exponential with the number of card values, as can be seen here (the vertical axis is on a log scale).
 
 ![Straight line with log y axis](/img/PerfectWar.jpg)
 
-Also interestingly, the expectation of the first game with no matches in the first run through seems to approach a limit somewhere below 4.56.
+Now, the count of perfect games varies with the count of games in which there is no match in the first deal in a simple way: there are $2$ raised to twice minus one of the number of card values as many of the latter. So that's a source of exponentiality. And it seems to be the only such source. The expectation of the first game with no matches in the first run-through seems to approach a limit somewhere below 4.56. I have a hunch that [Euler](http://eulerarchive.maa.org/hedi/HEDI-2004-09.pdf) would find $e$ in there somewhere.
 
 ![](/img/PerfectWar2.jpg)
 
-Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
+(No, it's not exactly 6 at $n = 3$.) Thanks to Angela Zhou for the important suggestion to [memoize](https://en.wikipedia.org/wiki/Dynamic_programming) the recursion.
 
 ```python
 from math import factorial

@@ -4,8 +4,8 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "http://hectorpefo.github.io"
-baseurl: ""
+url: "http://hectorpefo.github.io/prepublication"
+baseurl: "/prepublication"
 
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
@@ -80,7 +80,7 @@ share-links-active:
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "hectorpefo-github-io"
+# disqus: "hectorpefo-github-io"
 
 # Fill in your Google Analytics ID to track your website using GA
 #google_analytics: ""
